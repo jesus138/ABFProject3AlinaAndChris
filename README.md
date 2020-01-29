@@ -14,6 +14,9 @@ Dieses Projekt stellt ein Gruppenprojekt im Rahmen des Wintersemesters 2019/2020
     - winx86: Windows x86
 - src: Quellcode
     - unity01: Das Projekt
+    - Assets
+        - ABF: Eigener Programmcode / Assets
+        - Sounds: Sounds von freesound.org
     - diff: Geänderte Asset-Store Scripts
 
 ## Bedienung
