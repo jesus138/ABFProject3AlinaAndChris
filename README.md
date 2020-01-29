@@ -49,11 +49,24 @@ Es wurde ein AudioMixer verwendet zu dessen vier Gruppen die Soundquellen gerout
 - Player
 - Air
 
+In der Natur sind Geräusche für Insekten und Vogelzwitschern hinterlegt. Für das Wasser gibt es Wellenrauschen. In der Stadt gibt es bei der Ampel Verkehrsgeräusche, auf der anderen Seite Motorradgeräusche und bei der Statue eine jubelnde Menge. Die Geräusche wurden so eingestellt, dass sie logarithmisch abklingen und nur den für sie entsprechenden Bereich abdecken. Letzteres war jedoch nicht ohne weiteres möglich, weshalb ein Skript zur Soundverdeckung geschrieben wurde.
+
 ### c. Bewegende Objekte
+Es wurde in *MoveWay.cs* ein Skript geschrieben, welches Objekte entlang eines markierten Pfades auf einfache kinematische Art bewegt. Dieses Skript wurde auf das blaue Auto in der Stadt und das Flugzeug über dem Terrain angewendet. Beide haben eine Audioquelle. Beim vorbeifahren bzw. -fliegen dieser Objekte am Spieler sollte die Lautstärke entsprechend größer sein und auch der Doppler-Effekt hörbar.
 
 ### d. Sonstiges
+Hier nur eine Übersicht über die unterschiedlichen Soundquellen:
+- Wasser: Wellengeräusch
+- Player: Schrittgeräusche, Anpassung bei Rennen, Sprunggeräusch
+- Natur: Insektengeräusche + Naturambiente, Vögelzwitschern
+- Stadt: Motorrad, Ampelverkehr, jubelnde Menge, fahrendes Auto
+- Luft/Flugzeug: Jet-Engine Geräusch
 
 ### e. Sound-Verdeckung
+Um zu erreichen, dass bspw. in der Stadt keine Wellen- oder Naturgeräusche mehr zu hören sind, bzw. in der Natur und am Strand keine bzw. nur sachte Stadtgeräusche wurde ein Skript geschrieben. In *WaterMix.cs* und *CityMix.cs* wird dynamisch auf den AudioMixer zugegriffen.\
+Beim Betreten der Stadt werden die Naturgeräusche sehr leise gemacht und die Wellengeräusche komplett deaktiviert. Die Stadtgeräusche werden aktiviert. Folglich hat es den Effekt als würden die Stadtgebäude und die Stadtgeräusche die Geräusche des Umlandes verdecken. Beim Verlassen der Stadt werden die Stadtgeräusche auf sehr leise gestellt, die Wassergeräusche etwas hörbar und die Naturgeräusche komplett aktiviert.\
+Ähnlich verläuft es beim Betreten und Verlassen des Wasserbereiches. Dort werden die Stadtgeräusche komplett abgeschalten, Naturgeräusche etwas hörbei und die Wassergeräusche auf besonders laut. Letzteres war nötig, da die Wellengeräusche von der Soundquelle zu leise waren. Beim Verlassen des Wasserbereiches werden die Stadtgeräusche auf etwas leiser gestellt als beim Verlassen der Stadt, da bei letzteren zunächst eine Nähe mit der Stadt assoziiert werden würde.\
+Für das Detektieren der Bereiche werden wieder Collider-Komponenten verwendet.
 
 ## Externe Ressourcen
 
@@ -62,5 +75,16 @@ Die verwendeten Sounds befinden sich im Ordner Assets/Sounds und stammen alle vo
 
 ### Unity Asset Store
 Es wurden mehrere externe Asset Pakete aus dem Standard-Asset Store verwendet.
+- Unity Standard Assets (Player, Flugzeug, Bäume, Wasser)
+- Unity 3D Game Kit (Verwendung in verworfenen Szenen)
+- Unity Windridge City (für Stadt)
+- Asphalt Materials (Asphalt Textur)
+- Low Poly Road Pack (blaues Auto und Straßen)
+- Dungeon Stone Textures (für Wegtextur)
 
-Folgende Skripte wurden aus *Unity Standard Assets* angepasst und müssen aus dem *src/diff* Ordner entsprechend herauskopiert werden und die Standards ersetzen:
+Siehe Assets/*.meta Dateien für mehr Details. Einige Pakete wurden nur wegen einzelnen Texturen verwendet oder nur in der Anfangsphase des Projekts für Experimente.
+
+Folgende Skripte wurden aus *Unity Standard Assets* angepasst und müssen aus dem *src/diff* Ordner entsprechend herauskopiert werden und die Standards ersetzen:\
+Standard Assets/Characters/ThirdPersonCharacter/Scripts/
+- ThirdPersonCharacter.cs
+- ThirdPersonUserControl.cs
