@@ -82,7 +82,8 @@ Es wurden mehrere externe Asset Pakete aus dem Standard-Asset Store verwendet.
 - Low Poly Road Pack (blaues Auto und Straßen)
 - Dungeon Stone Textures (für Wegtextur)
 
-Siehe Assets/*.meta Dateien für mehr Details. Einige Pakete wurden nur wegen einzelnen Texturen verwendet oder nur in der Anfangsphase des Projekts für Experimente.
+Siehe Assets/*.meta Dateien für mehr Details. Einige Pakete wurden nur wegen einzelnen Texturen verwendet oder nur in der Anfangsphase des Projekts für Experimente.\
+Auch in Assets/.gitignore sind die Pakete angegeben. Diese sollten gedownloaded werden, um ein korrekten Build in Unity zu ermöglichen.
 
 Folgende Skripte wurden aus *Unity Standard Assets* angepasst und müssen aus dem *src/diff* Ordner entsprechend herauskopiert werden und die Standards ersetzen:\
 Standard Assets/Characters/ThirdPersonCharacter/Scripts/
